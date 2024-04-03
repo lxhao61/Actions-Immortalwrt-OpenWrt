@@ -21,10 +21,12 @@ sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/confi
 rm -rf feeds/packages/net/hysteria
 # 删除自带 naiveproxy
 rm -rf feeds/packages/net/naiveproxy
+# 删除自带 v2ray-geodata
+rm -rf feeds/packages/net/v2ray-geodata
 # 删除自带 xray-core
 rm -rf feeds/packages/net/xray-core
-# 删除自带 tailscale
-#rm -rf feeds/packages/net/tailscale
+# 删除自带 luci-app-softethervpn
+rm -rf feeds/luci/applications/luci-app-softethervpn
 
 # 筛选程序
 function merge_package(){
@@ -50,7 +52,9 @@ merge_package main https://github.com/xiaorouji/openwrt-passwall-packages.git fe
 # 提取 naiveproxy
 #merge_package master https://github.com/immortalwrt/packages.git feeds/packages/net net/naiveproxy
 merge_package main https://github.com/xiaorouji/openwrt-passwall-packages.git feeds/packages/net naiveproxy
+# 提取 v2ray-geodata
+merge_package main https://github.com/xiaorouji/openwrt-passwall-packages.git feeds/packages/net v2ray-geodata
 # 提取 xray-core
 merge_package main https://github.com/xiaorouji/openwrt-passwall-packages.git feeds/packages/net xray-core
-# 提取 tailscale
-#merge_package master https://github.com/immortalwrt/packages.git feeds/packages/net net/tailscale
+# 提取 luci-app-softethervpn
+merge_package main https://github.com/kenzok8/small-package.git feeds/luci/applications luci-app-softethervpn
