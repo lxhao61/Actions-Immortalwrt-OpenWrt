@@ -20,7 +20,7 @@ sed -i "s/hostname='.*'/hostname='OpenWrt'/g" package/base-files/files/bin/confi
 # 删除自带 hysteria
 rm -rf feeds/packages/net/hysteria
 # 删除自带 naiveproxy
-#rm -rf feeds/packages/net/naiveproxy
+rm -rf feeds/packages/net/naiveproxy
 # 删除自带 xray-core
 rm -rf feeds/packages/net/xray-core
 # 删除自带 tailscale
@@ -49,6 +49,7 @@ function merge_package(){
 merge_package main https://github.com/xiaorouji/openwrt-passwall-packages.git feeds/packages/net hysteria
 # 提取 naiveproxy
 #merge_package master https://github.com/immortalwrt/packages.git feeds/packages/net net/naiveproxy
+merge_package main https://github.com/xiaorouji/openwrt-passwall-packages.git feeds/packages/net naiveproxy
 # 提取 xray-core
 merge_package main https://github.com/xiaorouji/openwrt-passwall-packages.git feeds/packages/net xray-core
 # 提取 tailscale
